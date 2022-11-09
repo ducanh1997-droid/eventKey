@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sự kiện bàn phím</title>
+</head>
+<style>
+    img {
+        width: 70px;
+        height: auto;
+        position: relative;
+    }
+</style>
+<body onload="docReady()">
+
+<img id="nobita" src="https://upload.wikimedia.org/wikipedia/vi/2/2c/Nobita.png" alt="">
+</body>
+<script>
+     var nobita = document.getElementById("nobita");
+     nobita.style.left = "0px";
+     nobita.style.top  = "0px";
+    function arrowLeft(){
+        if(parseInt(nobita.style.left)>0) {
+            nobita.style.left = parseInt(nobita.style.left) - 10 + "px";
+        }
+    }
+    function arrowRight(){
+            nobita.style.left = parseInt(nobita.style.left) + 10 + "px";
+    }
+    function arrowUp(){
+        if(parseInt(nobita.style.top)>0){
+            nobita.style.top= parseInt(nobita.style.top) - 10 + "px";
+        }
+    }
+    function arrowDown(){
+            nobita.style.top = parseInt(nobita.style.top) + 10 + "px";
+    }
+    function moveSelection(evt){
+        switch (evt.keyCode){
+            case 37:
+                arrowLeft();
+                break;
+            case 38:
+                arrowUp();
+                break;
+            case 40:
+                arrowDown();
+                break;
+            case 39:
+                arrowRight();
+                break;
+        }
+    }
+
+    function docReady() {
+        window.addEventListener('keydown',moveSelection);
+    }
+</script>
+</html>
